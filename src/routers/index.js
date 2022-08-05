@@ -5,6 +5,7 @@ import Category from "../views/category";
 import Cart from "../views/cart";
 import Center from "../views/center";
 import NotFound from "../views/notfound";
+import Login from "../views/login";
 
 const Router = (props) => {
 	return (
@@ -15,6 +16,7 @@ const Router = (props) => {
 				<Route path={"/category"} component={Category} />
 				<Route path={"/cart"} component={Cart} />
 				<Route path={"/center"} component={Center} />
+				<Route path={"/login"} component={Login}></Route>
 				<Redirect to={'/index'} from={'/'} exact></Redirect>
 				<Route component={NotFound}/>
 			</Switch>
