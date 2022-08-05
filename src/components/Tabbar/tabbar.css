@@ -1,0 +1,8 @@
+.adm-tab-bar-wrap {
+	position: fixed;
+	z-index: 99999 !important;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background: #fff;
+}

@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import './views/assest/css/App.css';
+import {useEffect} from "react";
+import {getToken} from "./network";
+import Routers from "./routers";
+import TabBar from  './components/Tabbar'
 
 function App() {
+  useEffect(  () => {
+     getToken({
+      query: "admin",
+      password: "123456"
+    }).then(res => {
+       console.log(res);
+    })
+  }, [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routers>
+        <TabBar></TabBar>
+      </Routers>
     </div>
   );
 }
