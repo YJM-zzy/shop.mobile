@@ -1,11 +1,13 @@
 import React from 'react';
+import {withRouter} from "react-router-dom";
 
 const Index = () => {
-	return (
-		<div>
-			个人中心
-		</div>
-	);
+
+  return (
+    <div>
+     center
+    </div>
+  );
 };
 
-export default Index;
+export default withRouter(Index);
