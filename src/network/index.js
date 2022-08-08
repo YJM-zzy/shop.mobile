@@ -30,14 +30,14 @@ export async  function  upLoadImg(data)
 export async function delAvatar(id){
 	return request({
 		url: `/api/app/user/delavatar/${id}`,
-		method: 'delete',
+		method: 'post',
 	})
 }
 
 export async function updateAvatar(data) {
 	return request({
 		url: "/api/app/user/updateavatar",
-		method: "put",
+		method: "post",
 		data: data,
 	});
 }

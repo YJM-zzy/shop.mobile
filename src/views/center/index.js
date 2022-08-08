@@ -10,6 +10,7 @@ const Index = (props) => {
   const [userMessage,setUserMessage] = useState({})
   useEffect(() => {
     getUser().then(res => {
+      console.log(res.data.result)
       setUserMessage(res.data.result);
     })
   }, [])
@@ -19,7 +20,7 @@ const Index = (props) => {
         <div  className={style.avatar} onClick={() => {
           props.history.push('/updateAvatar')
         }}>
-          <Avatar src={userMessage.avatarUrl} style={{ '--size': '60px' , '--border-radius': '30px' }}/>
+          <Avatar src={`http://124.222.132.236:8080${userMessage.avatarUrl}`} style={{ '--size': '60px' , '--border-radius': '30px' }}/>
         </div>
         <span className={style.username}>{userMessage.name}</span>
       </div>

@@ -12,9 +12,9 @@ const Index = (props) => {
 		let formData = new FormData()
 		formData.append('file', file)
 		const res = await upLoadImg(formData);
-		setImg(`https://localhost:5001/api/app/user/GetAvatar/${res.data.result}`)
+		setImg(`/api/app/user/GetAvatar/${res.data.result}`)
 		return {
-			url:`https://localhost:5001/api/app/user/GetAvatar/${res.data.result}`
+			url:`http://124.222.132.236:8080/api/app/user/GetAvatar/${res.data.result}`
 		}
 	}
 
@@ -31,10 +31,13 @@ const Index = (props) => {
 			props.history.push('/center');
 			return;
 		}
-		Toast.show({
-			icon: 'fail',
-			content: '修改头像失败',
-		})
+		else {
+			Toast.show({
+				icon: 'fail',
+				content: '修改头像失败',
+			})
+		}
+
 	}
 	return (
 		<div>
