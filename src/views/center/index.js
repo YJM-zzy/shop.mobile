@@ -10,7 +10,6 @@ const Index = (props) => {
   const [userMessage,setUserMessage] = useState({})
   useEffect(() => {
     getUser().then(res => {
-      console.log(res.data.result)
       setUserMessage(res.data.result);
     })
   }, [])

@@ -15,20 +15,20 @@ const isAuth = () => {
 const Router = (props) => {
   return (
     <HashRouter>
-      {props.children}
-      <Switch>
-        <Route path={"/index"} component={Index}/>
-        <Route path={"/category"} component={Category}/>
-        <Route path={"/cart"} component={Cart}/>
-        <Route path={"/updateAvatar"} component={UpdateAvatar}/>
-        <Route path={"/center"} render={() =>
-					isAuth() ? <Center/> : <Redirect to={'/login'} from='/center'></Redirect>
-        }/>
-        <Route path={"/login"} component={Login}/>
-        <Redirect to={'/index'} from={'/'} exact></Redirect>
-        <Route component={NotFound}/>
-      </Switch>
-    </HashRouter>
+          {props.children}
+          <Switch>
+            <Route path={"/index"} component={Index}/>
+            <Route path={"/category"} component={Category}/>
+            <Route path={"/cart"} component={Cart}/>
+            <Route path={"/updateAvatar"} component={UpdateAvatar}/>
+            <Route path={"/center"} render={() =>
+              isAuth() ? <Center/> : <Redirect to={'/login'} from='/center'></Redirect>
+            }/>
+            <Route path={"/login"} component={Login}/>
+            <Redirect to={'/index'} from={'/'} exact></Redirect>
+            <Route component={NotFound}/>
+          </Switch>
+   </HashRouter>
   );
 };
 
