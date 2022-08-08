@@ -5,11 +5,11 @@ import Category from "../views/category";
 import Cart from "../views/cart";
 import Center from "../views/center";
 import NotFound from "../views/notfound";
-import Login from "../views/Login";
+import Login from "../views/login";
+import UpdateAvatar from "../views/updateAvatar";
 
 const isAuth = () => {
   return localStorage.getItem('token') ? true : false;
-  ;
 }
 
 const Router = (props) => {
@@ -20,6 +20,7 @@ const Router = (props) => {
         <Route path={"/index"} component={Index}/>
         <Route path={"/category"} component={Category}/>
         <Route path={"/cart"} component={Cart}/>
+        <Route path={"/updateAvatar"} component={UpdateAvatar}/>
         <Route path={"/center"} render={() =>
 					isAuth() ? <Center/> : <Redirect to={'/login'} from='/center'></Redirect>
         }/>

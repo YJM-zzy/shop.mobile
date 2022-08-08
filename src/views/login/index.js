@@ -1,12 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Form, Input,Button,Toast} from 'antd-mobile';
 import {getToken} from "../../network";
 import style from './login.module.css'
 
 const Index = (props) => {
   const [form] = Form.useForm();
+  const [loading, setLoading] = useState(false);
   const onSubmit = () => {
-
+    setLoading(true);
     const data = form.getFieldsValue()
     if(data.query === '' || data.query === undefined){
       return new Error('手机号不能为空!')
@@ -14,6 +15,7 @@ const Index = (props) => {
     getToken(data).then(res => {
       if(res.data.success){
         localStorage.setItem('token', res.data.result.token);
+        setLoading(false)
         Toast.show({
           icon: 'success',
           content: '登录成功',
@@ -25,6 +27,7 @@ const Index = (props) => {
         icon: 'fail',
         content: res.data.message,
       })
+      setLoading(false);
     })
   }
   return (
@@ -40,7 +43,7 @@ const Index = (props) => {
         <Form
           form={form}
           footer = {
-            <Button block color={'primary'} onClick={ onSubmit }>登录</Button>
+            <Button block color={'primary'} onClick={ onSubmit } loading={loading} loadingText={'登录中'}>登录</Button>
           }
         >
           <Form.Item

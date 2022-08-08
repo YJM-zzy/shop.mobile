@@ -2,7 +2,8 @@ import axios from "axios";
 
 export default function request(config) {
 	const request = axios.create({
-		baseURL:'https://localhost:44342',
+		// baseURL:'https://localhost:44342',
+		baseURL:'https://localhost:5001',
 		timeout: 1000000,
 	});
 
