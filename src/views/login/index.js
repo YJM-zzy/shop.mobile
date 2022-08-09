@@ -1,9 +1,18 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Form, Input, Button, Toast, Divider} from 'antd-mobile';
 import {getToken} from "../../network";
 import style from './login.module.css'
+import {hide, tabbarActionCreator} from "../../redux/actionCreators/TabbarActionCreator";
+import {connect} from "react-redux";
 
 const Index = (props) => {
+  const {show, hide} = props
+  useEffect(() => {
+    hide();
+    return () => {
+      show()
+    }
+  }, [show,hide])
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
   const onSubmit = () => {
@@ -79,4 +88,8 @@ const Index = (props) => {
   );
 };
 
-export default Index;
+const mapDispatchToProps = {
+  show: tabbarActionCreator,
+  hide
+}
+export default connect(null, mapDispatchToProps)(Index) ;
