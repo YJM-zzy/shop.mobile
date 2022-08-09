@@ -3,7 +3,7 @@ import {Form, Input, Button, Toast, Divider} from 'antd-mobile';
 import {registers} from "../../network";
 import style from './register.module.css'
 import {connect} from "react-redux";
-import {hide, tabbarActionCreator} from "../../redux/actionCreators/TabbarActionCreator";
+import {hide, show} from "../../redux/actionCreators/TabbarActionCreator";
 
 const Index = (props) => {
 	const {show, hide} = props
@@ -121,7 +121,7 @@ const Index = (props) => {
 };
 
 const mapDispatchToProps = {
-	show: tabbarActionCreator,
+	show,
 	hide
 }
 export default connect(null, mapDispatchToProps)(Index) ;

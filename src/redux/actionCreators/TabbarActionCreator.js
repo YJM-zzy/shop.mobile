@@ -1,6 +1,6 @@
-const tabbarActionCreator = () => {
+const show = () => {
 	return {
-		type:'tabbarActionCreator'
+		type:'show'
 	}
 }
 
@@ -10,5 +10,5 @@ const hide = () => {
 	}
 }
 export  {
-	tabbarActionCreator, hide
+	show, hide
 }

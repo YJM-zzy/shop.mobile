@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Form, Input, Button, Toast, Divider} from 'antd-mobile';
 import {getToken} from "../../network";
 import style from './login.module.css'
-import {hide, tabbarActionCreator} from "../../redux/actionCreators/TabbarActionCreator";
+import {hide, show} from "../../redux/actionCreators/TabbarActionCreator";
 import {connect} from "react-redux";
 
 const Index = (props) => {
@@ -10,7 +10,7 @@ const Index = (props) => {
   useEffect(() => {
     hide();
     return () => {
-      show()
+      show();
     }
   }, [show,hide])
   const [form] = Form.useForm();
@@ -89,7 +89,7 @@ const Index = (props) => {
 };
 
 const mapDispatchToProps = {
-  show: tabbarActionCreator,
+  show,
   hide
 }
 export default connect(null, mapDispatchToProps)(Index) ;
