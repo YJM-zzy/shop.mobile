@@ -41,3 +41,11 @@ export async function updateAvatar(data) {
 		data: data,
 	});
 }
+
+export async function registers(data) {
+	return request({
+		url: "/api/app/auth/register",
+		method: "post",
+		data: data,
+	});
+}

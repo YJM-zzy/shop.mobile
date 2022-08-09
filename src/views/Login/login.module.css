@@ -1,6 +1,6 @@
 .logo {
     width: 100%;
-    height: 260px;
+    height: 200px;
     background-image: url('../assest/imgs/cneter_bg.png');
     margin-bottom: 10px ;
     display: flex;
@@ -43,11 +43,22 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 8px;
     position: absolute;
-    top: 210px;
+    top: 150px;
     background: white;
     left: 5%;
 }
 .form {
     margin-top: 50px;
+}
+.register {
+    width: 90%;
+    position: absolute;
+    top: 450px;
+    left: 5%;
+}
+.registerText {
+    display: inline-block;
+    color: #f28c2a;
+    height: 20px;
 }
 

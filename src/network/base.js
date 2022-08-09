@@ -10,7 +10,7 @@ export default function request(config) {
 	// 请求拦截器
 	request.interceptors.request.use(
 		(res) => {
-			if (res.url !== "/api/app/auth/login") {
+			if (res.url !== "/api/app/auth/login" || res.url !== '/api/app/auth/register') {
 				const token = localStorage.getItem("token");
 				res.headers.Authorization = `Bearer ${token}`;
 			}

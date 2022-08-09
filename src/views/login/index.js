@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Form, Input, Button, Toast} from 'antd-mobile';
+import {Form, Input, Button, Toast, Divider} from 'antd-mobile';
 import {getToken} from "../../network";
 import style from './login.module.css'
 
@@ -34,12 +34,14 @@ const Index = (props) => {
       setLoading(false);
     })
   }
+
+  const register = () => {
+    props.history.push('/register');
+  }
   return (
     <div>
       <div className={style.logo}>
-      </div>
-      <div >
-
+        <span className={style.text}>用户登录</span>
       </div>
       <div className={style.card}>
         <div className={style.form}>
@@ -63,6 +65,15 @@ const Index = (props) => {
             </Form.Item>
           </Form>
         </div>
+      </div>
+      <div className={style.register}>
+        <Divider
+          style={{
+            borderStyle: 'solid',
+          }}
+        >
+          还没有账户？<span className={style.registerText} onClick={register}>立即注册</span>
+        </Divider>
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ import Center from "../views/center";
 import NotFound from "../views/notfound";
 import Login from "../views/login";
 import UpdateAvatar from "../views/updateAvatar";
+import Register from "../views/register";
 
 const isAuth = () => {
   return localStorage.getItem('token') ? true : false;
@@ -25,6 +26,7 @@ const Router = (props) => {
               isAuth() ? <Center/> : <Redirect to={'/login'} from='/center'></Redirect>
             }/>
             <Route path={"/login"} component={Login}/>
+            <Route path={"/register"} component={Register}/>
             <Redirect to={'/index'} from={'/'} exact></Redirect>
             <Route component={NotFound}/>
           </Switch>
