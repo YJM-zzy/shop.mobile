@@ -1,10 +1,19 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Form, Input, Button, Toast, Divider} from 'antd-mobile';
 import {registers} from "../../network";
 import style from './register.module.css'
+import {connect} from "react-redux";
+import {hide, tabbarActionCreator} from "../../redux/actionCreators/TabbarActionCreator";
 
 const Index = (props) => {
+	const {show, hide} = props
 	const [form] = Form.useForm();
+	useEffect(() => {
+		hide()
+		return () => {
+			show()
+		}
+	}, [show, hide])
 	const [loading, setLoading] = useState(false);
 	const onRegister = async () => {
 		const data = form.getFieldsValue();
@@ -54,7 +63,6 @@ const Index = (props) => {
 		})
 		setLoading(false);
 	}
-
 	const register = () => {
 		props.history.push('/login');
 	}
@@ -112,4 +120,8 @@ const Index = (props) => {
 	);
 };
 
-export default Index;
+const mapDispatchToProps = {
+	show: tabbarActionCreator,
+	hide
+}
+export default connect(null, mapDispatchToProps)(Index) ;

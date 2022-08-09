@@ -1,15 +1,20 @@
 import './views/assest/css/App.css';
 import Routers from "./routers";
 import TabBar from  './components/Tabbar'
+import {connect} from "react-redux";
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <Routers>
-        <TabBar></TabBar>
+        {props.isShow && <TabBar></TabBar>}
       </Routers>
     </div>
   );
 }
-
-export default App;
+const mapStateToProps = state => {
+  return {
+    isShow: state.TabbarReducer.show
+  }
+}
+export default connect(mapStateToProps)(App);
