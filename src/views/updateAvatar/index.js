@@ -1,10 +1,19 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, ImageUploader, NavBar, Toast} from "antd-mobile";
 import  {upLoadImg, delAvatar, updateAvatar} from "../../network";
 import style from './updateAvatar.module.css'
+import {hide, show} from "../../redux/actionCreators/TabbarActionCreator";
+import {connect} from "react-redux";
 
 const Index = (props) => {
 	const [img, setImg] = useState('');
+	const {show, hide} = props;
+	useEffect(() => {
+		hide();
+		return () => {
+			show();
+		}
+	}, [show, hide]);
 	const back = () =>{
 		props.history.goBack();
 	}
@@ -41,7 +50,9 @@ const Index = (props) => {
 	}
 	return (
 		<div>
-			<NavBar onBack={back}>修改头像</NavBar>
+			<div className={style.avatarTabbar}>
+				<NavBar onBack={back}>修改头像</NavBar>
+			</div>
 			<div className={style.upLoadImgBox}>
 				<ImageUploader
 					upload={mockUpload}
@@ -55,9 +66,11 @@ const Index = (props) => {
 					<Button color={'primary'} onClick={ update}>提交</Button>
 				</div>
 			</div>
-
 		</div>
 	);
 };
-
-export default Index;
+const mapDispatchToProps = {
+	show,
+	hide
+}
+export default connect(null, mapDispatchToProps)(Index) ;

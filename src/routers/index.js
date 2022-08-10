@@ -11,6 +11,7 @@ import Register from "../views/register";
 import OrderList from "../views/orderList";
 import Address from "../views/address";
 import UpdateUserInfo from "../views/updateUserInfo";
+import AddOrUpdateAddress from "../views/addOrUpdateAddress";
 
 const isAuth = () => {
   return localStorage.getItem('token') ? true : false;
@@ -35,6 +36,8 @@ const Router = (props) => {
             <Route path={"/address"} component={Address}/>
             <Route path={"/updateUserInfo"} component={UpdateUserInfo}/>
             <Redirect to={'/orderList/0'} from={'/orderList'} exact></Redirect>
+            <Route path={"/addOrUpdateAddress/:id"} component={AddOrUpdateAddress}/>
+            <Redirect to={'/addOrUpdateAddress/0'} from={'/addOrUpdateAddress'} exact></Redirect>
             <Route component={NotFound}/>
           </Switch>
    </HashRouter>

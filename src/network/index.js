@@ -49,3 +49,10 @@ export async function registers(data) {
 		data: data,
 	});
 }
+
+export async function getAddressList() {
+	return request({
+		url: "/api/app/user/getuseraddress",
+		method: "get",
+	});
+}

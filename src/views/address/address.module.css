@@ -1,0 +1,16 @@
+.addressContainer {
+
+}
+
+.addressNavbar{
+	background: white;
+}
+
+.addAddressBtn {
+	color: #f28c2a;
+	font-size: 14px;
+	font-weight: bold;
+}
+.addressContent {
+	margin-top: 10px;
+}
