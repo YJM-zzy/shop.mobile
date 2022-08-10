@@ -1,13 +1,16 @@
-import './views/assest/css/App.css';
+import './views/assest/css/app.module.css';
 import Routers from "./routers";
 import TabBar from  './components/Tabbar'
 import {connect} from "react-redux";
+import style from './views/assest/css/app.module.css'
 
 function App(props) {
   return (
-    <div className="App">
+    <div className={style.app}>
       <Routers>
-        {props.isShow && <TabBar></TabBar>}
+        {props.isShow && <div className={style.tabbarfixed}>
+          <TabBar></TabBar>
+        </div>}
       </Routers>
     </div>
   );

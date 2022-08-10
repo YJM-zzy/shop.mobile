@@ -6,7 +6,6 @@ import {
 	UserOutline,
 	CalendarOutline
 } from 'antd-mobile-icons'
-import './tabbar.css'
 import {withRouter} from "react-router-dom";
 
 const AntTabBar = (props) => {

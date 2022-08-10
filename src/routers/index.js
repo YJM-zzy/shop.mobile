@@ -8,6 +8,9 @@ import NotFound from "../views/notfound";
 import Login from "../views/login";
 import UpdateAvatar from "../views/updateAvatar";
 import Register from "../views/register";
+import OrderList from "../views/orderList";
+import Address from "../views/address";
+import UpdateUserInfo from "../views/updateUserInfo";
 
 const isAuth = () => {
   return localStorage.getItem('token') ? true : false;
@@ -19,6 +22,7 @@ const Router = (props) => {
           {props.children}
           <Switch>
             <Route path={"/index"} component={Index}/>
+            <Redirect to={'/index'} from={'/'} exact></Redirect>
             <Route path={"/category"} component={Category}/>
             <Route path={"/cart"} component={Cart}/>
             <Route path={"/updateAvatar"} component={UpdateAvatar}/>
@@ -27,7 +31,10 @@ const Router = (props) => {
             }/>
             <Route path={"/login"} component={Login}/>
             <Route path={"/register"} component={Register}/>
-            <Redirect to={'/index'} from={'/'} exact></Redirect>
+            <Route path={"/orderList/:type"} component={OrderList}/>
+            <Route path={"/address"} component={Address}/>
+            <Route path={"/updateUserInfo"} component={UpdateUserInfo}/>
+            <Redirect to={'/orderList/0'} from={'/orderList'} exact></Redirect>
             <Route component={NotFound}/>
           </Switch>
    </HashRouter>

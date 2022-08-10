@@ -1,0 +1,19 @@
+.orderList {
+
+}
+
+.orderListNavBar {
+	background: white;
+	position: sticky;
+	top: 0;
+	z-index: 9999 !important;
+}
+.orderListTabBar{
+	background: white;
+	position: sticky;
+	top: 45px;
+	z-index: 9999 !important;
+}
+.orderListContent {
+	margin-top: 10px;
+}

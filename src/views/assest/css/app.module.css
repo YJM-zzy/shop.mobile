@@ -1,8 +1,12 @@
-.adm-tab-bar-wrap {
+.tabbarfixed {
 	position: fixed;
 	z-index: 99999 !important;
 	bottom: 0;
 	left: 0;
 	width: 100%;
 	background: #fff;
+}
+.app {
+	height: 100vh;
+	background: #eee;
 }
