@@ -6,9 +6,12 @@ import {
 	UserOutline,
 	CalendarOutline
 } from 'antd-mobile-icons'
-import {withRouter} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 
-const AntTabBar = (props) => {
+const AntTabBar = () => {
+	const navigate = useNavigate()
+	const location = useLocation()
+	console.log(location)
 	const tabs = [
 		{
 			key: '/index',
@@ -32,12 +35,13 @@ const AntTabBar = (props) => {
 		},
 	]
 	return (
+
 		<div>
 			<TabBar
 				onChange={(value) => {
-					props.history.push(value)
+					navigate(value)
 				}}
-				activeKey={ props.location.pathname }
+				activeKey={ location.pathname }
 			>
 				{tabs.map(item => (
 					<TabBar.Item key={item.key} icon={item.icon} title={item.title} />
@@ -47,4 +51,4 @@ const AntTabBar = (props) => {
 	);
 };
 
-export default withRouter(AntTabBar);
+export default AntTabBar;

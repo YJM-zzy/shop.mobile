@@ -4,9 +4,11 @@ import {getToken} from "../../network";
 import style from './login.module.css'
 import {hide, show} from "../../redux/actionCreators/TabbarActionCreator";
 import {connect} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 const Index = (props) => {
   const {show, hide} = props
+  const navigate = useNavigate()
   useEffect(() => {
     hide();
     return () => {
@@ -33,7 +35,7 @@ const Index = (props) => {
           icon: 'success',
           content: '登录成功',
         })
-        props.history.push('/center');
+        navigate('/center');
         return;
       }
       Toast.show({
@@ -45,7 +47,7 @@ const Index = (props) => {
   }
 
   const register = () => {
-    props.history.push('/register');
+    navigate('/register');
   }
   return (
     <div>

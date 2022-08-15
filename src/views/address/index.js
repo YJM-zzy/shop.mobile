@@ -5,10 +5,12 @@ import {getAddressList} from "../../network";
 import {connect} from "react-redux";
 import {getAddress} from "../../redux/actionCreators/AddressActionCreator"
 import {hide, show} from "../../redux/actionCreators/TabbarActionCreator";
+import {useNavigate} from "react-router-dom";
 
 const Index = (props) => {
 	const [addressList, setAddressList] = useState([]);
 	const {show, hide} = props;
+	const navigate = useNavigate();
 	useEffect(() => {
 		getAddressList().then(res => {
 			setAddressList(res.data.result);
@@ -28,13 +30,13 @@ const Index = (props) => {
 		<div className={style.addressNavbar}>
 			<NavBar
 				onBack={() => {
-					props.history.goBack();
+					navigate('/center');
 				}}
 				right={<span
 					className={style.addAddressBtn}
 					onClick={() => {
 						props.getAddress({})
-						props.history.push('/addOrUpdateAddress')
+						navigate('/addOrUpdateAddress')
 					}}
 				>新增地址</span>}
 			>
@@ -63,7 +65,7 @@ const Index = (props) => {
 						children={item.detail}
 						extra={<i className={'iconfont icon-bianji'} onClick={() => {
 							props.getAddress(item);
-							props.history.push(`/addOrUpdateAddress/${item.id}`);
+							navigate(`/addOrUpdateAddress/${item.id}`);
 						}}></i>}
 					>
 					</List.Item>

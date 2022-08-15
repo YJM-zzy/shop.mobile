@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {hide, show} from "../../redux/actionCreators/TabbarActionCreator";
 import {Button, CascadePicker, Form, Input, NavBar} from "antd-mobile";
 import style from "./addOrUpdateAddress.module.css"
+import {useNavigate, useParams} from "react-router-dom";
 
 const options = [
 	{
@@ -21,13 +22,14 @@ const options = [
 			}
 		],
 	},
-
 ]
 
 const Index = (props) => {
 	const {hide, show,addressInfo} = props;
 	const [form] = Form.useForm()
 	const [visible, setVisible] = useState(false)
+	const params = useParams();
+	const navigate = useNavigate();
 	useEffect(() => {
 		hide();
 		return () => {
@@ -42,14 +44,14 @@ const Index = (props) => {
 			<div className={style.auaNarBar}>
 				<NavBar
 					onBack={() => {
-						props.history.goBack();
+						navigate('/address');
 					}}
 					right={
-						props.match.params.id !== '0' && <span className={style.addAddressBtn} onClick={() => {
-							deleteAddress(props.match.params.id)
+						params.id !== '0' && <span className={style.addAddressBtn} onClick={() => {
+							deleteAddress(params.id)
 						}}>删除</span>
 					}
-				>{props.match.params.id === '0' ? '添加收货人' : '修改收货人'}</NavBar>
+				>{params.id === '0' ? '添加收货人' : '修改收货人'}</NavBar>
 			</div>
 			<div className={style.form}>
 				<Form

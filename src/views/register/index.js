@@ -4,10 +4,12 @@ import {registers} from "../../network";
 import style from './register.module.css'
 import {connect} from "react-redux";
 import {hide, show} from "../../redux/actionCreators/TabbarActionCreator";
+import {useNavigate} from "react-router-dom";
 
 const Index = (props) => {
 	const {show, hide} = props
 	const [form] = Form.useForm();
+	const navigate = useNavigate()
 	useEffect(() => {
 		hide()
 		return () => {
@@ -54,7 +56,7 @@ const Index = (props) => {
 				icon: 'success',
 				content: '注册成功',
 			})
-			props.history.push('/login');
+			navigate('/login');
 			return;
 		}
 		Toast.show({
@@ -64,7 +66,7 @@ const Index = (props) => {
 		setLoading(false);
 	}
 	const register = () => {
-		props.history.push('/login');
+		navigate('/login');
 	}
 
 	return (

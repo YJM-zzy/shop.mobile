@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {withRouter} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {getUser} from "../../network";
 import style from "../login/login.module.css";
 import {Avatar, Button, Card, Dialog, List} from "antd-mobile";
@@ -8,6 +8,7 @@ import {  RightOutline } from 'antd-mobile-icons'
 
 const Index = (props) => {
 	const [userMessage, setUserMessage] = useState({})
+	const navigate = useNavigate();
 	useEffect(() => {
 		getUser().then(res => {
 			setUserMessage(res.data.result);
@@ -19,20 +20,20 @@ const Index = (props) => {
 		})
 		if (result) {
 			localStorage.clear();
-			props.history.push('/login');
+			navigate('/login');
 		}
 	}
 	const changeAddress = () => {
-		props.history.push('/address')
+		navigate('/address')
 	}
 	const changeUserInfo = () => {
-		props.history.push('/updateUserInfo')
+		navigate('/updateUserInfo')
 	}
 	return (
 		<div className={'centerContainer'}>
 			<div className={style.logo}>
 				<div className={style.avatar} onClick={() => {
-					props.history.push('/updateAvatar')
+					navigate('/updateAvatar')
 				}}>
 					<Avatar src={`http://124.222.132.236:8080${userMessage.avatarUrl}`}
 									style={{'--size': '60px', '--border-radius': '30px'}}/>
@@ -48,24 +49,24 @@ const Index = (props) => {
 							color: '#999999'
 						}}
 						onClick={() => {
-							props.history.push('/orderList/0')}
+							navigate('/orderList/0')}
 						}
 					> 全部<RightOutline /></span>
 				} onHeaderClick={() => {}}>
 					<ul >
 						<li onClick={() => {
-							props.history.push('/orderList/1')
+							navigate('/orderList/1')
 						}}>
 							<div><i className={'iconfont icon-daifahuo'}></i></div>
 							<span>待发货</span>
 						</li>
 						<li onClick={() => {
-							props.history.push('/orderList/2')
+							navigate('/orderList/2')
 						}}>
 							<div><i className={'iconfont icon-daishouhuo'}></i></div>
 							<span>待收货</span></li>
 						<li onClick={() => {
-							props.history.push('/orderList/3')
+							navigate('/orderList/3')
 						}}>
 							<div><i className={'iconfont icon-yifahuo'}></i></div>
 							<span>已收货</span>
@@ -90,4 +91,4 @@ const Index = (props) => {
 	);
 };
 
-export default withRouter(Index);
+export default Index;
