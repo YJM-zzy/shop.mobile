@@ -15,7 +15,7 @@ const persistConfig = {
 
 const reducer = combineReducers({
 	TabbarReducer,
-	AddressReducer
+	AddressReducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, reducer)

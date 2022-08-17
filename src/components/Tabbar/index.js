@@ -11,7 +11,6 @@ import {useLocation, useNavigate} from "react-router-dom";
 const AntTabBar = () => {
 	const navigate = useNavigate()
 	const location = useLocation()
-	console.log(location)
 	const tabs = [
 		{
 			key: '/index',
@@ -35,7 +34,6 @@ const AntTabBar = () => {
 		},
 	]
 	return (
-
 		<div>
 			<TabBar
 				onChange={(value) => {

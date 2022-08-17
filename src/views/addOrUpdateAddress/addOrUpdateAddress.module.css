@@ -9,3 +9,7 @@
 .form {
 
 }
+.load{
+	--size: 60px;
+	--color: #217eff!important;
+}

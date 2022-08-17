@@ -30,6 +30,7 @@ const Index = (props) => {
     getToken(data).then(res => {
       if(res.data.success){
         localStorage.setItem('token', res.data.result.token);
+        localStorage.setItem('refresh_token', res.data.result.refreshToken)
         setLoading(false)
         Toast.show({
           icon: 'success',

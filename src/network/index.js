@@ -56,3 +56,32 @@ export async function getAddressList() {
 		method: "get",
 	});
 }
+
+export async function getAreaList() {
+	return request({
+    url: "/api/app/user/getarealist",
+    method: "get",
+  });
+}
+
+export  async  function  addAddress(data){
+	return request({
+    url: "/api/app/user/adduseraddr",
+    method: "post",
+		data
+  });
+}
+
+export async function updateAddress(data) {
+	return request({
+		url: "/api/app/user/updateuseraddr",
+		method: "post",
+		data
+	})
+}
+export async function delAddress(id){
+	return request({
+    url: `api/app/user/deleteuseraddr/${id}`,
+    method: "post",
+  });
+}
